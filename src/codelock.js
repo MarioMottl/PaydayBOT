@@ -1,3 +1,5 @@
+const { boxed } = require("./formatting.js");
+
 function permutations(arr) {
     if (arr.length === 0) {
         return [[]];
@@ -47,7 +49,7 @@ function generateCode(digits) {
     }
 
     console.log(`🔒 Codes: ${[...perms].join(", ")}`);
-    return `\`${[...perms].join(", ")}\``;
+    return boxed([...perms].join(", "));
 }
 
 module.exports = { generateCode };

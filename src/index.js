@@ -54,9 +54,9 @@ client.on("messageCreate", (message) => {
             }
         } else {
             console.log(
-                `🔒 Ignoring message from ${message.author.username} in ${message.channel.name}`
+                `Ignoring message from ${message.author.username} in ${message.channel.name}`
             );
-            console.log(` | ->  🔒 Message: ${message.content}`);
+            console.log(` | -> Message: ${message.content}`);
         }
     }
 });
@@ -68,21 +68,23 @@ client.on("interactionCreate", (interaction) => {
         case "ping":
             interaction
                 .reply("pong")
-                .then(() => console.log(`✅ Replied to ${interaction.user.username}`));
+                .then(() => console.log(`Replied to ${interaction.user.username}`));
             break;
         case "codelock":
             interaction
                 .reply(`${generateCode(interaction.options.getNumber("digits"))}`)
-                .then(() => console.log(`✅ Replied to ${interaction.user.username}`));
+                .then(() => console.log(`Replied to ${interaction.user.username}`));
             break;
         default:
             interaction
                 .reply("unknown command")
-                .then(() => console.log(`✅ Replied to ${interaction.user.username}`));
+                .then(() => console.log(`Replied to ${interaction.user.username}`));
             break;
     }
 });
 
 client.login(token).then(() => {
     console.log(`✅ Logged in as ${client.user.username}!`);
+}).catch((error) => {
+    console.error(`❌ Error logging in: ${error}`);
 });

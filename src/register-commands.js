@@ -32,7 +32,7 @@ function register_slash_commmands() {
 
     (async () => {
         try {
-            console.log("🔒 Registering slash commands...");
+            console.log("Registering slash commands...");
 
             await rest.put(
                 Routes.applicationGuildCommands(
